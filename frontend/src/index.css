@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-surface: #1e293b;
+  --color-surface-hover: #334155;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply antialiased font-sans m-0 p-0 overflow-hidden;
+  }
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-slate-800/60 backdrop-blur-md border border-slate-700/50 shadow-xl rounded-xl;
+  }
+  
+  .glass-button {
+    @apply bg-blue-600/90 hover:bg-blue-500/90 text-white backdrop-blur-sm shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .glass-input {
+    @apply bg-slate-900/50 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-lg text-slate-200 placeholder-slate-400 outline-none w-full transition-all resize-none;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+}
