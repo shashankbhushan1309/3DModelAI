@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     LLM_TIMEOUT: int = Field(default=180, description="Timeout in seconds for LLM requests")
     LLM_RETRIES: int = Field(default=2, description="Number of retries for transient LLM errors")
 
+    # OpenAI Fallback (used when local Ollama fails)
+    OPENAI_API_KEY: Optional[str] = Field(default=None, description="OpenAI API key for GPT-4o fallback")
+    OPENAI_MODEL: str = Field(default="gpt-4o", description="OpenAI model to use as fallback")
+
     # FreeCAD
     FREECAD_PATH: Optional[str] = Field(default=None, description="Path to FreeCADCmd executable")
     FREECAD_TIMEOUT: int = Field(default=30, description="Timeout in seconds for FreeCAD execution")
